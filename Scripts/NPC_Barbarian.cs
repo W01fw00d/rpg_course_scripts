@@ -29,10 +29,6 @@ public class NPC_Barbarian : MonoBehaviour {
     public bool playerInSight = false;
     public float fieldOfViewAngle = 120;
 
-    void Awake()
-    {
-
-    }
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -52,6 +48,14 @@ public class NPC_Barbarian : MonoBehaviour {
                 0.2f
             );
         }
+
+        if (player.transform.GetComponent<BarbarianCharacterController>().dead)
+        {
+            animator.SetBool("attack", false);
+            animator.SetFloat("linearSpeed", 0);
+            animator.SetFloat("angularSpeed", 0);
+            // ???
+        }
 	}
 
     private void FixedUpdate()
@@ -68,6 +72,19 @@ public class NPC_Barbarian : MonoBehaviour {
         animator.SetFloat("linearSpeed", speed);
         animator.SetFloat("angularSpeed", h);
         animator.SetBool("attack", attack);
+
+        if (attack)
+        {
+            animator.SetFloat("attack1", 1);
+        }
+
+        if (playerInSight)
+        {
+            if (animator.GetFloat("attack2") > 0.5f || animator.GetFloat("attack3") > 0.5f)
+            {
+                player.GetComponent<PlayerAgent>().playerCharacterData.health -= 1.0f;
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
