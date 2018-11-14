@@ -125,7 +125,10 @@ public class DragonCharacterController : MonoBehaviour
                 ForceMode.Impulse
             );
             currentFireball.transform.parent = null;
+
+            currentFireball.GetComponent<AudioSource>().volume = GameMaster.sharedInstance.sfxVolume;
             currentFireball.GetComponent<AudioSource>().Play();
+
             currentFireball.GetComponent<SphereCollider>().enabled = true;
 
             Invoke("LoadNewFireBall", 2.0f);
