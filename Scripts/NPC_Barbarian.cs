@@ -49,7 +49,7 @@ public class NPC_Barbarian : MonoBehaviour {
             );
         }
 
-        if (player.transform.GetComponent<BarbarianCharacterController>().dead)
+        if (IsPlayerBarbarianCharacterDead())
         {
             animator.SetBool("attack", false);
             animator.SetFloat("linearSpeed", 0);
@@ -57,6 +57,11 @@ public class NPC_Barbarian : MonoBehaviour {
             // ???
         }
 	}
+
+    private bool IsPlayerBarbarianCharacterDead()
+    {
+        return player.transform.GetComponent<BarbarianCharacterController>().dead;
+    }
 
     private void FixedUpdate()
     {
@@ -75,7 +80,7 @@ public class NPC_Barbarian : MonoBehaviour {
 
         if (attack)
         {
-            animator.SetFloat("attack1", 1);
+            animator.SetBool("attack", true);
         }
 
         if (playerInSight)
@@ -89,7 +94,7 @@ public class NPC_Barbarian : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag.Equals("Player"))
+        if (other.transform.tag.Equals("Player") && !IsPlayerBarbarianCharacterDead())
         {
             //vector = destino - origen
             direction = other.transform.position - this.transform.transform.position;
