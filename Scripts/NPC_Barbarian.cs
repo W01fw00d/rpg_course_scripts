@@ -10,7 +10,7 @@ public class NPC_Barbarian : MonoBehaviour {
 
     private SphereCollider collider;
 
-    private GameObject player;
+    public GameObject player;
 
     public float speed = 0.0f;
     public float h = 0.0f;

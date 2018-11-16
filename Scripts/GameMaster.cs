@@ -20,26 +20,58 @@ public class GameMaster : MonoBehaviour {
     public float musicVolume = 0;
     public float sfxVolume = 0;
 
-    private GameObject player;
+    public GameObject player;
     private GameObject startPosition;
 
     public Scene currentScene;
 
+    public string characterName;
+
     private void OnLevelWasLoaded(int level)
     {
         currentScene = SceneManager.GetActiveScene();
+
         startPosition = GameObject.Find("GameStartPosition");
-        player = GameObject.FindWithTag("Player");
+
+        player = (GameObject)Resources.Load("Prefabs/" + characterName);
+
+        //foreach (GameObject possiblePlayer in GameObject.FindGameObjectsWithTag("Player"))
+        //{
+        //    if (possiblePlayer.name.Equals(characterName))
+        //    {
+        //        player = possiblePlayer;
+        //    } else
+        //    {
+        //        possiblePlayer.SetActive(false);
+        //    }
+        //}
+
+        if (player == null || !currentScene.name.Equals(SceneName.level1))
+        {
+            return;
+        }
+           
+        player.GetComponentInChildren<Camera>().enabled = true;
+        //character.GetComponent<Rigidbody>().useGravity = true;
+
+        if (player.GetComponent<BarbarianCharacterController>() != null)
+        {
+            player.GetComponent<BarbarianCharacterController>().enabled = true;
+        }
+
+        if (player.GetComponent<DragonCharacterController>() != null)
+        {
+            player.GetComponent<DragonCharacterController>().enabled = true;
+        }
+
+        //player.GetComponent<SelectedCharacter>().enabled = currentScene.name.Equals(SceneName.characterSelection);
         player.transform.position = Vector3.zero;
 
-        Debug.Log(currentScene);
-        Debug.Log(startPosition);
-        Debug.Log(player);
+        //Debug.Log(currentScene);
+        //Debug.Log(startPosition);
+        //Debug.Log(player);
 
-        if (currentScene.name.Equals(SceneName.level1))
-        {
-            Instantiate(player, startPosition.transform);
-        }
+        Instantiate(player, startPosition.transform);
     }
 
     private void Awake()
