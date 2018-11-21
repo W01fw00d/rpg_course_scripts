@@ -66,25 +66,38 @@ public class BarbarianCharacterCustomization : MonoBehaviour {
         }
     }
 
-    // ToDo IMplement here a function that maps name of slider and its value as floats
-    float red = 1,
-        green = 1,
-        blue = 1,
-        xs = 1,
-        ys = 1,
-        zs = 1;
     // ToDo and another to update them and check them
+
+
+    public Hashtable sliderMapping = new Hashtable()
+    {
+        { "RedSlider", 1.0f },
+        { "GreenSlider", 1.0f },
+        { "BlueSlider", 1.0f },
+        { "XSlider", 1.0f },
+        { "YSlider", 1.0f },
+        { "ZSlider", 1.0f },
+    };
 
     public void ChangeSlideValue(Slider slider)
     {
+        sliderMapping[slider.name] = slider.value;
 
-        // ToDo Call here the method to update
+        Debug.Log((float)sliderMapping["XSlider"]);
 
-        manager.selectedCharacter.transform.localScale = new Vector3(xs, ys, zs);
+        manager.selectedCharacter.transform.localScale = new Vector3(
+            (float) sliderMapping["XSlider"],
+            (float) sliderMapping["YSlider"],
+            (float) sliderMapping["ZSlider"]
+        );
 
         foreach(Renderer renderer in manager.selectedCharacter.GetComponentsInChildren<Renderer>())
         {
-            renderer.material.color = new Color(red, green, blue);
+            renderer.material.color = new Color(
+                (float) sliderMapping["RedSlider"],
+                (float) sliderMapping["GreenSlider"],
+                (float) sliderMapping["BlueSlider"]
+            );
         }
     }
 
@@ -94,6 +107,18 @@ public class BarbarianCharacterCustomization : MonoBehaviour {
     }
 
     static private Hashtable createModelMapping(string[] names)
+    {
+        Hashtable result = new Hashtable();
+
+        foreach (string name in names)
+        {
+            result.Add("Toggle" + name, modelPath + name);
+        }
+
+        return result;
+    }
+
+    static private Hashtable createSlidersMapping(string[] names)
     {
         Hashtable result = new Hashtable();
 

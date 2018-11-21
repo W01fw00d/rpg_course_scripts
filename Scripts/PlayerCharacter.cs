@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
+[System.Serializable]
 public class PlayerCharacter : BaseCharacter {
 
 	// Use this for initialization

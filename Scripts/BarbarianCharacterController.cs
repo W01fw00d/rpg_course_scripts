@@ -18,6 +18,8 @@ public class BarbarianCharacterController : MonoBehaviour
 
     private Animator animator;
 
+    public BaseCharacter characterData;
+
     private const string
         ANIM_SPEED = "speed",
         ANIM_HORIZONTAL = "horizontal",
@@ -31,6 +33,9 @@ public class BarbarianCharacterController : MonoBehaviour
 
     void Start () {
         animator = GetComponent<Animator>();
+
+        // Investigar este bug, parece que al principio no se cumplen las condiciones para renderizar
+        Invoke("RenderWeapon", 0.1f); 
 	}
 	
 	void Update () {
@@ -112,5 +117,31 @@ public class BarbarianCharacterController : MonoBehaviour
         animator.SetFloat(ANIM_SPEED, speed);
         animator.SetFloat(ANIM_HORIZONTAL, horizontal);
         animator.SetFloat(ANIM_VERTICAL, vertical);
+    }
+
+
+    public void RenderWeapon()
+    {
+        if (!characterData.canUseWeapons)
+        {
+            return;
+        }
+
+        if (characterData.currentWeapon != null && characterData.weaponSpot != null)
+        {
+            characterData.currentWeapon.transform.position = characterData.currentWeapon.GetComponent<InventoryItemAgent>().playerPosition;
+            //characterData.currentWeapon.transform.localRotation = characterData.currentWeapon.GetComponent<InventoryItemAgent>().playerRotation;
+
+            // disable InventoryItemAgent when I create the script
+
+            //currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+
+            //if (lastWeapon != null)
+            //{
+            //    Destroy(lastWeapon);
+            //}
+            Instantiate(characterData.currentWeapon, characterData.weaponSpot);
+        }
     }
 }

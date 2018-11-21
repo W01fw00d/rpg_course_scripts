@@ -39,6 +39,8 @@ public class CharacterSelectionManager : MonoBehaviour
 
         selectedCharacter = Instantiate(availableCharacters[characterId], spawnPoint);
 
+        selectedCharacter.AddComponent<SelectedCharacter>();
+
         BarbarianCharacterCustomization.sharedInstance.ToggleCanvas();
 
         //selectedCharacter.transform.position = spawnPoint.transform.position;

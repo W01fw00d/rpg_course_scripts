@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
+[System.Serializable]
 public class BaseCharacter
 {
     [SerializeField]
@@ -19,6 +19,7 @@ public class BaseCharacter
         intelligence, //mide la capacidad de razonamiento / interacción
         health; // marca si el positivo está vivo o muerto
 
-
-
+    public bool canUseWeapons;
+    public Transform weaponSpot;
+    public GameObject currentWeapon;
 }

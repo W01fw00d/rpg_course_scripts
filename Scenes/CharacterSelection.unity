@@ -1619,7 +1619,7 @@ GameObject:
   - component: {fileID: 445574048}
   - component: {fileID: 445574049}
   m_Layer: 0
-  m_Name: SliderBlue
+  m_Name: BlueSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,9 +1686,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 783521780}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2044,7 +2044,7 @@ GameObject:
   - component: {fileID: 599529875}
   - component: {fileID: 599529876}
   m_Layer: 0
-  m_Name: SliderY
+  m_Name: YSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3237,7 +3237,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4528,7 +4528,7 @@ GameObject:
   - component: {fileID: 1150223594}
   - component: {fileID: 1150223595}
   m_Layer: 0
-  m_Name: SliderRed
+  m_Name: RedSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4595,9 +4595,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1312261100}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6101,7 +6101,7 @@ GameObject:
   - component: {fileID: 1418960583}
   - component: {fileID: 1418960584}
   m_Layer: 0
-  m_Name: SliderZ
+  m_Name: ZSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7170,7 +7170,7 @@ GameObject:
   - component: {fileID: 1728338166}
   - component: {fileID: 1728338167}
   m_Layer: 0
-  m_Name: SliderGreen
+  m_Name: GreenSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7237,9 +7237,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1230746234}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7335,7 +7335,7 @@ GameObject:
   - component: {fileID: 1741711224}
   - component: {fileID: 1741711225}
   m_Layer: 0
-  m_Name: SliderX
+  m_Name: XSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
