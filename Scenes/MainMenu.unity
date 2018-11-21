@@ -2190,7 +2190,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1737246998}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a394477ba1123344978ae0f8df0596b, type: 3}
@@ -2294,7 +2294,7 @@ MonoBehaviour:
   musicVolume: 0
   sfxVolume: 0
   player: {fileID: 0}
-  startPosition: {fileID: 0}
+  characterName: 
 --- !u!4 &1737247001
 Transform:
   m_ObjectHideFlags: 0

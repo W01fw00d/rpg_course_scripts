@@ -1267,6 +1267,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114565548203568966, guid: b176bb1e27053bf43a8afef02004d9d4,
+        type: 2}
+      propertyPath: characterData.canUseWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114565548203568966, guid: b176bb1e27053bf43a8afef02004d9d4,
+        type: 2}
+      propertyPath: characterData.weaponSpot
+      value: 
+      objectReference: {fileID: 1377858259}
+    - target: {fileID: 114565548203568966, guid: b176bb1e27053bf43a8afef02004d9d4,
+        type: 2}
+      propertyPath: characterData.currentWeapon
+      value: 
+      objectReference: {fileID: 100008, guid: 188f817550494b84bb22be7680513bb6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b176bb1e27053bf43a8afef02004d9d4, type: 2}
   m_IsPrefabAsset: 0
@@ -5951,6 +5966,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1358812126}
   m_CullTransparentMesh: 0
+--- !u!4 &1377858259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4124675366291814, guid: b176bb1e27053bf43a8afef02004d9d4,
+    type: 2}
+  m_PrefabInternal: {fileID: 388787890}
 --- !u!1 &1388043775
 GameObject:
   m_ObjectHideFlags: 0
