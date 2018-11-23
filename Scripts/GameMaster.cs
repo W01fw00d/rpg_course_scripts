@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public static class SceneName
 {
-    public const string mainMenu = "Main Menu";
-    public const string characterSelection = "Character Selection";
+    public const string mainMenu = "MainMenu";
+    public const string characterSelection = "CharacterSelection";
     public const string level1 = "Chapter1";
 }
 
@@ -84,6 +84,11 @@ public class GameMaster : MonoBehaviour {
 
     public void StartGame()
     {
+        SceneManager.LoadScene(SceneName.characterSelection);
+    }
+
+    public void LoadFirstLevel()
+    {
         SceneManager.LoadScene(SceneName.level1);
     }
 
@@ -96,5 +101,10 @@ public class GameMaster : MonoBehaviour {
     public void SFXVolume(float newVolume)
     {
         this.sfxVolume = newVolume;
+    }
+
+    public void GameObjectDestroy(GameObject aGameObject)
+    {
+        Destroy(aGameObject);
     }
 }

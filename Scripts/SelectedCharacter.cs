@@ -4,45 +4,34 @@ using UnityEngine;
 
 public class SelectedCharacter : MonoBehaviour {
 
-    public Renderer rend;
+    public Light playerLight;
 
-    //void Start()
-    //{
-    //    rend = GetComponent<Renderer>();
-    //}
+    void Start()
+    {
+        GameObject tempLight = GameObject.Find("SpotLight");
+        playerLight.enabled = false;
+    }
 
-    // The mesh goes red when the mouse is over it...
     void OnMouseEnter()
     {
-        rend.material.color = Color.red;
+        playerLight.enabled = true;
     }
 
-    // ...the red fades out to cyan as the mouse is held over...
     void OnMouseOver()
     {
-        rend.material.color -= new Color(0.1F, 0, 0) * Time.deltaTime;
     }
 
-    // ...and the mesh finally turns white when the mouse moves away.
     void OnMouseExit()
     {
-        rend.material.color = Color.white;
+        playerLight.enabled = false;
     }
-
-    // Use this for initialization
-    void Start () {
-        GameObject tempLight = GameObject.Find("spotlight");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnMouseDown()
     {
         GameMaster.sharedInstance.player = 
-            GameObject.Find("CharacterSelectionManager").GetComponent<CharacterSelectionManager>().selectedCharacter;
+            GameObject.Find("CharacterSelectionManager").
+                GetComponent<CharacterSelectionManager>().selectedCharacter;
 
+        GameMaster.sharedInstance.LoadFirstLevel();
     }
 }

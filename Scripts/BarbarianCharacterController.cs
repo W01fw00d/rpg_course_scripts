@@ -101,11 +101,11 @@ public class BarbarianCharacterController : MonoBehaviour
         }
 
         // Debug death
-        if (Input.GetKeyUp(KeyCode.I))
-        {
-            die = true;
-            dead = true;
-        }
+        //if (Input.GetKeyUp(KeyCode.I))
+        //{
+        //    die = true;
+        //    dead = true;
+        //}
     }
 
     private void FixedUpdate()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class InventoryItem : BaseItem {
 
     [SerializeField]
@@ -50,5 +51,16 @@ public class InventoryItem : BaseItem {
         {
             weight = value;
         }
+    }
+
+    public void CopyInventoryItem(InventoryItem originalItem)
+    {
+        Category = originalItem.Category;
+
+        Name = originalItem.Name;
+        Description = originalItem.Description;
+
+        Strength = originalItem.Strength;
+        Weight = originalItem.Weight;
     }
 }
