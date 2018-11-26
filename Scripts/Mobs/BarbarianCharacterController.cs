@@ -144,4 +144,25 @@ public class BarbarianCharacterController : MonoBehaviour
             Instantiate(characterData.currentWeapon, characterData.weaponSpot);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // TODO: Cambiar el daño a un script DamageWeapon asignado a la arma que haga daño cuando un enemigo entra en el collider del arma
+
+        if (attack && other.tag == "Enemy")
+        {
+            float baseDamage = 10.0f;
+            float playerDamage = GetComponent<PlayerAgent>().playerCharacterData.strength;
+            float enemyDefense = GetComponent<NPCAgent>().npcData.defense;
+            //ToDo añadir modificadores según armas del player / defensas del enemy
+            NPCAgent agent = other.GetComponent<NPCAgent>();
+            agent.npcData.health -= baseDamage * playerDamage * enemyDefense;
+
+            if (agent.npcData.health <= 0)
+            {
+                //other.GetComponent<NPCBarbarianController>
+                Destroy(other);
+            }
+        }
+    }
 }

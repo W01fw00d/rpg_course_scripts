@@ -40,6 +40,11 @@ public class NPC_Barbarian : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (die)
+        {
+            //ToDo animar la muerte del NPC
+        }
+
 		if (playerInSight)
         {
             this.transform.rotation = Quaternion.Slerp(
@@ -60,6 +65,7 @@ public class NPC_Barbarian : MonoBehaviour {
 
     private bool IsPlayerBarbarianCharacterDead()
     {
+        //ToDo use Player tag check to known the correct Controller to use depending on selected player ...
         return player.transform.GetComponent<BarbarianCharacterController>().dead;
     }
 
@@ -87,7 +93,14 @@ public class NPC_Barbarian : MonoBehaviour {
         {
             if (animator.GetFloat("attack2") > 0.5f || animator.GetFloat("attack3") > 0.5f)
             {
-                player.GetComponent<PlayerAgent>().playerCharacterData.health -= 1.0f;
+                float baseDamage = 10.0f;
+                float enemyAttack = GetComponent<NPCAgent>().npcData.strength;
+                float playerDefense = player.GetComponent<PlayerAgent>().playerCharacterData.defense;
+
+                //TODO: Influence damage by strenght of others
+                //TODO: si hay armas equipadas o armaduras lo suyo es hacer un bucle e incrementar el ataque/defensa según los modificadores de arma y armadura
+                player.GetComponent<PlayerAgent>().playerCharacterData.health -=
+                    baseDamage * Time.deltaTime * enemyAttack / playerDefense;
             }
         }
     }

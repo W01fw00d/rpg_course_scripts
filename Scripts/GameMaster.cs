@@ -113,4 +113,9 @@ public class GameMaster : MonoBehaviour {
         GameObject canvasHUD = GameObject.Find("CanvasHUD");
         canvasHUD.GetComponent<HUDElementUI>().ReloadUI();
     }
+
+    public void PlayerHasAttacked(float playerDamage)
+    {
+
+    }
 }
