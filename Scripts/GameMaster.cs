@@ -107,4 +107,10 @@ public class GameMaster : MonoBehaviour {
     {
         Destroy(aGameObject);
     }
+
+    public void ForceReloadUI()
+    {
+        GameObject canvasHUD = GameObject.Find("CanvasHUD");
+        canvasHUD.GetComponent<HUDElementUI>().ReloadUI();
+    }
 }
