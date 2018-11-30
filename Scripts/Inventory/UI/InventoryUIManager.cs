@@ -16,9 +16,6 @@ public class InventoryUIManager : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(GameMaster.sharedInstance);
-        Debug.Log(SceneName.mainMenu);
-
         if (
             GameMaster.sharedInstance.currentScene.name != SceneName.mainMenu &&
             GameMaster.sharedInstance.currentScene.name != SceneName.characterSelection

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NonDestroyable : MonoBehaviour {
 
-	void Start () {
+	void Awake () {
         DontDestroyOnLoad(this);
 	}
 }

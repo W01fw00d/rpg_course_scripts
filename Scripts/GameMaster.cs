@@ -25,17 +25,16 @@ public class GameMaster : MonoBehaviour {
 
     public Scene currentScene;
 
-    public string characterName;
+    //public string characterName;
 
     public InventorySystem inventory;
 
     private void OnLevelWasLoaded(int level)
     {
         currentScene = SceneManager.GetActiveScene();
-
         startPosition = GameObject.Find("GameStartPosition");
 
-        player = (GameObject)Resources.Load("Prefabs/" + characterName);
+        Debug.Log(player);
 
         if (player == null || !currentScene.name.Equals(SceneName.level1))
         {
@@ -89,6 +88,8 @@ public class GameMaster : MonoBehaviour {
 
     public void LoadFirstLevel()
     {
+        Debug.Log(player);
+
         SceneManager.LoadScene(SceneName.level1);
     }
 
@@ -112,10 +113,5 @@ public class GameMaster : MonoBehaviour {
     {
         GameObject canvasHUD = GameObject.Find("CanvasHUD");
         canvasHUD.GetComponent<HUDElementUI>().ReloadUI();
-    }
-
-    public void PlayerHasAttacked(float playerDamage)
-    {
-
     }
 }

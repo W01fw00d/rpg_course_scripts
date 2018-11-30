@@ -74,10 +74,14 @@ public class CharacterSelectionManager : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        GameMaster.sharedInstance.characterName = GameObject.Find("CharacterSelectionManager").
-             GetComponent<CharacterSelectionManager>().
-             selectedCharacter.name.Replace("(Clone)", "");
-    }
+    //private void OnMouseDown()
+    //{
+    //    Debug.Log("CLICKADO");
+    //    GameMaster.sharedInstance.player = selectedCharacter;
+    //    GameMaster.sharedInstance.LoadFirstLevel();
+
+    //    //GameMaster.sharedInstance.characterName = GameObject.Find("CharacterSelectionManager").
+    //    //     GetComponent<CharacterSelectionManager>().
+    //    //     selectedCharacter.name.Replace("(Clone)", "");
+    //}
 }

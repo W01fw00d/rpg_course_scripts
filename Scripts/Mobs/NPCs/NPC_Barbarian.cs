@@ -65,8 +65,19 @@ public class NPC_Barbarian : MonoBehaviour {
 
     private bool IsPlayerBarbarianCharacterDead()
     {
-        //ToDo use Player tag check to known the correct Controller to use depending on selected player ...
-        return player.transform.GetComponent<BarbarianCharacterController>().dead;
+        Transform player_transform = player.transform;
+
+        bool is_dead = true; //default: if unknown player controller, consider it dead
+
+        if (player_transform.GetComponent<BarbarianCharacterController>())
+        {
+            is_dead = player_transform.GetComponent<BarbarianCharacterController>().dead;
+        } else if (player_transform.GetComponent<DragonCharacterController>())
+        {
+            is_dead = player_transform.GetComponent<DragonCharacterController>().dead;
+        }
+
+        return is_dead;
     }
 
     private void FixedUpdate()
