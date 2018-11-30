@@ -630,8 +630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 372}
-  m_SizeDelta: {x: 800, y: 120}
+  m_AnchoredPosition: {x: 0, y: 314}
+  m_SizeDelta: {x: 1300, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500230868
 MonoBehaviour:
@@ -679,7 +679,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RPG Course
+  m_Text: 'Spirou tHe Dragonite
+
+    and Jacobo Pecholobo
+
+    Very Big Adventures 2'
 --- !u!222 &500230870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2294,7 +2298,6 @@ MonoBehaviour:
   musicVolume: 0
   sfxVolume: 0
   player: {fileID: 0}
-  characterName: 
 --- !u!4 &1737247001
 Transform:
   m_ObjectHideFlags: 0

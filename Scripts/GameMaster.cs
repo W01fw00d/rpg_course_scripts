@@ -34,8 +34,6 @@ public class GameMaster : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene();
         startPosition = GameObject.Find("GameStartPosition");
 
-        Debug.Log(player);
-
         if (player == null || !currentScene.name.Equals(SceneName.level1))
         {
             return;
