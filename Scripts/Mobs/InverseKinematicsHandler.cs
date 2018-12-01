@@ -8,9 +8,6 @@ public class InverseKinematicsHandler : MonoBehaviour {
 
     public Transform leftFoot, rightFoot;
 
-    //  USED FOR MANUAL TESTING no se compila!!!
-    #if UNITY_EDITOR
-
     #region TESTING
     public Transform leftIKTarget, rightIKTarget;
     public Transform hintLeft, hintRight;
@@ -31,8 +28,6 @@ public class InverseKinematicsHandler : MonoBehaviour {
     public float clampWEight = 1.0f;
 
     public Transform lookPosition;
-
-    #endif
 
     void Start () {
         animator = GetComponent<Animator>();

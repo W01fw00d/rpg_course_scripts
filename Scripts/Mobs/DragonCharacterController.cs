@@ -9,7 +9,7 @@ public class DragonCharacterController : MonoBehaviour
     public float vertical = 0.0f;
     public bool attack = false;
     public bool jump = false;
-    public bool die = false; //muriendo, transición
+    public bool die = false; //muriendo, transición animación
     public bool superattack = false;
 
     public bool hit = false;
@@ -46,7 +46,7 @@ public class DragonCharacterController : MonoBehaviour
 
         ANIM_JUMP = "jump";
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
@@ -125,7 +125,6 @@ public class DragonCharacterController : MonoBehaviour
                 ForceMode.Impulse
             );
             currentFireball.transform.parent = null;
-
             currentFireball.GetComponent<AudioSource>().volume = GameMaster.sharedInstance.sfxVolume;
             currentFireball.GetComponent<AudioSource>().Play();
 
